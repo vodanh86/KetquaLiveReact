@@ -1,5 +1,6 @@
 import React from 'react';
-import {View, WebView} from 'react-native';
+import {View} from 'react-native';
+import { WebView } from 'react-native-webview'
 import {connect} from 'react-redux';
 import {getAppPropMap, getAppStateMap} from "../../common/common.map";
 import styles from '../styles/ViewVideoStyle';
