@@ -85,7 +85,7 @@ class ReportScreen extends React.Component {
                     <TouchableOpacity style={styles.option} onPress={() => this.props.goToRoute(this.props.navigation, 'ThongKeLoGan')}>
                         <View style={{ flexDirection: 'row' }}>
                             <View style={styles.optionIconContainer}>
-                                <IconItem name={`chart-scatterplot-hexbin`} type={`mc`} />
+                                <IconItem name={`chart-scatter-plot-hexbin`} type={`mc`} />
                             </View>
                             <View style={styles.optionTextContainer}>
                                 <Text style={styles.optionText}>Thống kê lô tô gan</Text>
