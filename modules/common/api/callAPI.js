@@ -52,7 +52,7 @@ export const callAPI = async function callAPI(endpoint, params, include_token) {
         )
         .then((response) => {
             console.log("API", endpoint, ": Time => ", new Date().getTime() - start_time);
-            console.log("API", endpoint, ": Response 1 => ", response);
+            console.log("API", endpoint, ": Response 1 => ", JSON.stringify(response));
             try{
                 return response.json();
             }catch (error){

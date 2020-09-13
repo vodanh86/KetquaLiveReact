@@ -170,73 +170,73 @@ class ProfileScreen extends React.Component {
                     <View style={styles.user_info}>
                         <View style={styles.info_row} comment="Họ và tên">
                             <View style={styles.info_label}>
-                                <IconItem name={`person${Platform.OS === 'ios'?'-outline':''}`} size={20} style={styles.info_row_icon} />
+                                <IconItem name={`person${Platform.OS === 'ios'?'':''}`} size={20} style={styles.info_row_icon} />
                                 <Text style={styles.info_row_label}>Tên</Text>
                             </View>
                             <View style={styles.info_value}>
                                 <Text style={this.props.visitor.name!==""?styles.info_row_value:styles.info_row_value_gray}>{this.props.visitor.name!==""?this.props.visitor.name:"Chưa cung cấp"}</Text>
                                 <TouchableOpacity onPress={() => this.fullnamePopup.open()}>
-                                    <IconItem name={`create${Platform.OS === 'ios'?'-outline':''}`} size={20} style={styles.info_row_edit_icon} />
+                                    <IconItem name={`create${Platform.OS === 'ios'?'':''}`} size={20} style={styles.info_row_edit_icon} />
                                 </TouchableOpacity>
                             </View>
                         </View>
                         <View style={styles.info_row} comment="Ngày sinh">
                             <View style={styles.info_label}>
-                                <IconItem name={`calendar${Platform.OS === 'ios'?'-outline':''}`} size={20} style={styles.info_row_icon} />
+                                <IconItem name={`calendar${Platform.OS === 'ios'?'':''}`} size={20} style={styles.info_row_icon} />
                                 <Text style={styles.info_row_label}>Ngày sinh</Text>
                             </View>
                             <View style={styles.info_value}>
                                 <Text style={this.props.visitor.birthday_formatted!==""?styles.info_row_value:styles.info_row_value_gray}>{this.props.visitor.birthday_formatted!==""?this.props.visitor.birthday_formatted:"Chưa cung cấp"}</Text>
                                 <TouchableOpacity onPress={() => this.openBirthdayPicker()}>
-                                    <IconItem name={`create${Platform.OS === 'ios'?'-outline':''}`} size={20} style={styles.info_row_edit_icon} />
+                                    <IconItem name={`create${Platform.OS === 'ios'?'':''}`} size={20} style={styles.info_row_edit_icon} />
                                 </TouchableOpacity>
                             </View>
                         </View>
                         <View style={styles.info_row} comment="Số điện thoại">
                             <View style={styles.info_label}>
-                                <IconItem name={`call${Platform.OS === 'ios'?'-outline':''}`} size={20} style={styles.info_row_icon} />
+                                <IconItem name={`call${Platform.OS === 'ios'?'':''}`} size={20} style={styles.info_row_icon} />
                                 <Text style={styles.info_row_label}>Số điện thoại</Text>
                             </View>
                             <View style={styles.info_value}>
                                 <Text style={this.props.visitor.phone!==""?styles.info_row_value:styles.info_row_value_gray}>{this.props.visitor.phone!==""?this.props.visitor.phone:"Chưa cung cấp"}</Text>
                                 <TouchableOpacity onPress={() => this.phonePopup.open()}>
-                                    <IconItem name={`create${Platform.OS === 'ios'?'-outline':''}`} size={20} style={styles.info_row_edit_icon} />
+                                    <IconItem name={`create${Platform.OS === 'ios'?'':''}`} size={20} style={styles.info_row_edit_icon} />
                                 </TouchableOpacity>
                             </View>
                         </View>
                         <View style={styles.info_row} comment="Email">
                             <View style={styles.info_label}>
-                                <IconItem name={`mail${Platform.OS === 'ios'?'-outline':''}`} size={20} style={styles.info_row_icon} />
+                                <IconItem name={`mail${Platform.OS === 'ios'?'':''}`} size={20} style={styles.info_row_icon} />
                                 <Text style={styles.info_row_label}>Địa chỉ email</Text>
                             </View>
                             <View style={styles.info_value}>
                                 <Text style={this.props.visitor.email!==""?styles.info_row_value:styles.info_row_value_gray} numberOfLines={1} ellipsizeMode={`middle`}>{this.props.visitor.email!==""?this.props.visitor.email:"Chưa cung cấp"}</Text>
                                 <TouchableOpacity onPress={() => this.emailPopup.open()}>
-                                    <IconItem name={`create${Platform.OS === 'ios'?'-outline':''}`} size={20} style={styles.info_row_edit_icon} />
+                                    <IconItem name={`create${Platform.OS === 'ios'?'':''}`} size={20} style={styles.info_row_edit_icon} />
                                 </TouchableOpacity>
                             </View>
                         </View>
                         <View style={styles.info_row} comment="Mật khẩu">
                             <View style={styles.info_label}>
-                                <IconItem name={`lock${Platform.OS === 'ios'?'-outline':''}`} size={20} style={styles.info_row_icon} />
+                                <IconItem name={`lock${Platform.OS === 'ios'?'':''}`} size={20} style={styles.info_row_icon} />
                                 <Text style={styles.info_row_label}>Mật khẩu</Text>
                             </View>
                             <View style={styles.info_value}>
                                 <Text style={styles.info_row_value_gray}>************</Text>
                                 <TouchableOpacity onPress={() => this.passwordPopup.open()}>
-                                    <IconItem name={`create${Platform.OS === 'ios'?'-outline':''}`} size={20} style={styles.info_row_edit_icon} />
+                                    <IconItem name={`create${Platform.OS === 'ios'?'':''}`} size={20} style={styles.info_row_edit_icon} />
                                 </TouchableOpacity>
                             </View>
                         </View>
                         <View style={styles.info_row} comment="Giới tính">
                             <View style={styles.info_label}>
-                                <IconItem name={`transgender${Platform.OS === 'ios'?'-outline':''}`} size={20} style={styles.info_row_icon} />
+                                <IconItem name={`transgender${Platform.OS === 'ios'?'':''}`} size={20} style={styles.info_row_icon} />
                                 <Text style={styles.info_row_label}>Giới tính</Text>
                             </View>
                             <View style={styles.info_value}>
                                 <Text style={this.props.visitor.gender!==""?styles.info_row_value:styles.info_row_value_gray}>{this.props.visitor.gender!==""?this.props.visitor.gender:"Chưa cung cấp"}</Text>
                                 <TouchableOpacity onPress={() => this.genderModal.open()}>
-                                    <IconItem name={`create${Platform.OS === 'ios'?'-outline':''}`} size={20} style={styles.info_row_edit_icon} />
+                                    <IconItem name={`create${Platform.OS === 'ios'?'':''}`} size={20} style={styles.info_row_edit_icon} />
                                 </TouchableOpacity>
                             </View>
                         </View>

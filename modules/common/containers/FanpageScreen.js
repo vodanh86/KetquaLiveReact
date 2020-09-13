@@ -3,9 +3,9 @@ import {
     ScrollView,
     Text,
     View,
-    StyleSheet,
-    WebView
+    StyleSheet
 } from 'react-native';
+import { WebView } from 'react-native-webview'
 import {getAppPropMap, getAppStateMap} from "../../common/common.map";
 import {connect} from 'react-redux';
 import {CONFIG} from "../common.constants";

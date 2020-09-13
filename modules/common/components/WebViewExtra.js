@@ -12,12 +12,16 @@
  */
 
 import React, { Component } from 'react';
+import { WebView } from 'react-native-webview'
+import {CONFIG} from "../common.constants";;
 import {
     View,
     Dimensions,
-    WebView,
     Platform,
 } from 'react-native';
+
+const deviceHeight = Dimensions.get('window').height;
+const deviceWidth = Dimensions.get('window').width;
 
 const injectedScript = function() {
     function waitForBridge() {
@@ -66,14 +70,14 @@ export default class WebViewExtra extends Component {
     }
 
     render () {
-        const baseUrl = 'http://192.168.2.216/xs/view';
+        const baseUrl = CONFIG.api_domain + '/view';
         const _w = this.props.width || Dimensions.get('window').width;
         const _h = this.props.autoHeight ? this.state.webViewHeight : this.props.defaultHeight;
         const androidScript = 'window.postMessage = String(Object.hasOwnProperty).replace(\'hasOwnProperty\', \'postMessage\');' +
             '(' + String(injectedScript) + ')();';
         const iosScript = '(' + String(injectedScript) + ')();' + 'window.postMessage = String(Object.hasOwnProperty).replace(\'hasOwnProperty\', \'postMessage\');';
         return (
-            <View style={{flex: 1,backgroundColor: '#fff'}}>
+            <View style={{flex: 1,backgroundColor: '#fff',width:deviceWidth,height:deviceHeight}}>
             <WebView
                 ref={(ref) => { this.webview = ref; }}
                 injectedJavaScript={Platform.OS === 'ios' ? iosScript : androidScript}

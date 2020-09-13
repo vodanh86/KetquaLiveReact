@@ -103,7 +103,7 @@ HomeStack.navigationOptions = {
             focused={focused}
             name={
                 Platform.OS === 'ios'
-                    ? `ios-home${focused ? '' : '-outline'}`
+                    ? `ios-home${focused ? '' : ''}`
                     : 'md-home'
             }
         />
@@ -125,7 +125,7 @@ LotoStack.navigationOptions = {
             focused={focused}
             name={
                 Platform.OS === 'ios'
-                    ? `ios-globe${focused ? '' : '-outline'}`
+                    ? `ios-globe${focused ? '' : ''}`
                     : 'md-globe'
             }
         />
@@ -147,7 +147,7 @@ FootballStack.navigationOptions = {
             focused={focused}
             name={
                 Platform.OS === 'ios'
-                    ? `ios-football${focused ? '' : '-outline'}`
+                    ? `ios-football${focused ? '' : ''}`
                     : 'md-football'
             }
         />
@@ -169,7 +169,7 @@ ReportStack.navigationOptions = {
             focused={focused}
             name={
                 Platform.OS === 'ios'
-                    ? `ios-podium${focused ? '' : '-outline'}`
+                    ? `ios-podium${focused ? '' : ''}`
                     : 'md-podium'
             }
         />

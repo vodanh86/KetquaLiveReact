@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@expo/samples": "2.1.1",
-    "@expo/vector-icons": "^6.3.1",
+    "@expo/vector-icons": "^10.0.0",
     "expo": "^37.0.0",
     "expo-asset": "~8.1.5",
     "md5": "^2.2.1",
@@ -29,6 +29,7 @@
     "react-native-swiper": "^1.5.14",
     "react-native-tab-view": "^2.0.2",
     "react-native-video": "^4.4.0",
+    "react-native-webview": "^10.8.3",
     "react-navigation": "^3.11.0",
     "react-redux": "^6.0.1",
     "redux": "^4.0.1",
