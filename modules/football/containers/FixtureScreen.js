@@ -34,7 +34,7 @@ class FixtureScreen extends React.Component {
         }
     };
 
-    async componentWillMount() {
+    async UNSAFE_componentWillMount() {
         await this.getData();
         this.intervalObj = setInterval(() => {
             this.getData();

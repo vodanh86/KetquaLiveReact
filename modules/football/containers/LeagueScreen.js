@@ -41,7 +41,7 @@ class LeagueScreen extends React.Component {
         }
     };
 
-    async componentWillMount() {
+    async UNSAFE_componentWillMount() {
         await this.getData();
     }
 

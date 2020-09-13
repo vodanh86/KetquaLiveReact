@@ -33,7 +33,7 @@ class FollowersScreen extends React.Component {
         limit: 10
     };
 
-    async componentWillMount() {
+    async UNSAFE_componentWillMount() {
         await this._fetchUser();
     }
 

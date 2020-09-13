@@ -41,7 +41,7 @@ class FootballSubscribeScreen extends React.Component {
         histories: []
     };
 
-    async componentWillMount() {
+    async UNSAFE_componentWillMount() {
         await this.updateRegTab();
     }
 

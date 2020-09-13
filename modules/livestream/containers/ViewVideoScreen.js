@@ -19,7 +19,7 @@ class ViewVideoScreen extends React.Component {
         }
     };
 
-    async componentWillMount() {
+    async UNSAFE_componentWillMount() {
         let video = this.props.navigation.getParam('video');
         const {setParams} = this.props.navigation;
         if(typeof video === 'object'){

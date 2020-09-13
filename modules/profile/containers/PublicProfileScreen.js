@@ -32,7 +32,7 @@ class PublicProfileScreen extends React.Component {
         user: null
     };
 
-    async componentWillMount(){
+    async UNSAFE_componentWillMount(){
         await this.updateInfo();
     };
 

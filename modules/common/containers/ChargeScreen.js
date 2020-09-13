@@ -117,7 +117,7 @@ class ChargeScreen extends React.Component {
         }, 1000*second);
     };
 
-    async componentWillMount () {
+    async UNSAFE_componentWillMount () {
         let charge_code = await AsyncStorage.getItem('charge_code');
         if(charge_code != null){
             await this.checkChargeStatus(charge_code);

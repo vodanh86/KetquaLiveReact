@@ -57,7 +57,7 @@ class SettingScreen extends React.Component {
         await AsyncStorage.setItem('notificationSettings', JSON.stringify(this.state));
     };
 
-    async componentWillMount() {
+    async UNSAFE_componentWillMount() {
         let notificationSettings = await AsyncStorage.getItem('notificationSettings', () => {});
         if(notificationSettings !== null && notificationSettings !== ""){
             notificationSettings = JSON.parse(notificationSettings);

@@ -30,7 +30,7 @@ class PremiumBenefitScreen extends React.Component {
         tab: 'vip'
     };
 
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
         if(this.props.visitor.type === ACCOUNT_SUPERVIP){
             this.setState({tab: 'supervip'});
         }

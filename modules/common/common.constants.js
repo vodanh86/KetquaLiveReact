@@ -8,7 +8,7 @@ export const CONFIG = {
     support_time: 'Thời gian: 9:00-18:00 từ Thứ 2 - Thứ 6',
     api_client_id: '6456123123123',
     api_client_key: 'ee37c9c24d95670a317326eca57b9926',
-    api_domain: 'http://192.168.10.4/KetqualiveAPI',
+    api_domain: 'http://207.148.117.130',
     fanpage_url: 'http://192.168.10.4/facebook',
     vip_price: 4999,
     vip_price_formatted: '4.999',

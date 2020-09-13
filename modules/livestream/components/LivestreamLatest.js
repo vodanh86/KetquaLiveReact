@@ -36,7 +36,7 @@ class LivestreamLatest extends React.Component {
         };
     }
 
-    async componentWillMount() {
+    async UNSAFE_componentWillMount() {
         await this._fetchVideo();
     }
 

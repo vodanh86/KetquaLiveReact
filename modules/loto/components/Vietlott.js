@@ -39,7 +39,7 @@ class Vietlott extends Component {
     };
 
 
-    async componentWillMount(){
+    async UNSAFE_componentWillMount(){
         await this.getMega();
     }
 

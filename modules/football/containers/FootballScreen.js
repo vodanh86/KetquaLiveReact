@@ -38,7 +38,7 @@ class FootballScreen extends React.Component {
         headerRight: <MenuNotifyButton />,
     };
 
-    async componentWillMount() {
+    async UNSAFE_componentWillMount() {
         await this.getData();
         setInterval(() => {
             if(moment().format('DD/MM/YYYY') === moment(this.state.date).format('DD/MM/YYYY')){

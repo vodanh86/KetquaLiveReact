@@ -47,7 +47,7 @@ class LotoSubscribeScreen extends React.Component {
         provinces: []
     };
 
-    async componentWillMount() {
+    async UNSAFE_componentWillMount() {
         await this.updateRegTab(true);
     }
 

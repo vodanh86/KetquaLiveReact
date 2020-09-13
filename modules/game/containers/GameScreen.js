@@ -31,7 +31,7 @@ class GameScreen extends React.Component {
         image: null
     };
 
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
         this.setState({
             messages: [
 

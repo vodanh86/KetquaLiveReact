@@ -27,7 +27,7 @@ class Loto extends Component {
         region_tab_offset: 0
     };
 
-    async componentWillMount(){
+    async UNSAFE_componentWillMount(){
         this.living = true;
         await this.getLatest(this.state.region, true);
     }
