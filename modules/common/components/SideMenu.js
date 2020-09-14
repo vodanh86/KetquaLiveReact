@@ -22,6 +22,7 @@ class SideMenu extends React.Component {
                     <SideMenuItem href="Feedback" title="Gửi phản hồi" icon={Platform.OS === "ios" ?"ios-paper-plane":"md-paper-plane"}/>
                     <SideMenuItem href="Fanpage" title="Fanpage" icon={Platform.OS === "ios" ?"ios-thumbs-up":"md-thumbs-up"}/>
                     <SideMenuItem href={`tel:${CONFIG.hotline}`} title={`Hotline: ${CONFIG.hotline}`} icon={Platform.OS === "ios" ?"ios-call":"md-call"}/>
+                    <SideMenuItem href="Logout" title="Đăng xuất" icon={Platform.OS === "ios" ?"ios-log-out":"md-log-out"}/>
                     <SideMenuItem href="" title={`Version: ${CONFIG.version}`} icon={Platform.OS === "ios" ?"ios-quote":"md-quote"}/>
                 </ScrollView>
             </View>

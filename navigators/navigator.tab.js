@@ -22,6 +22,7 @@ import BuySuperVipScreen from "../modules/profile/containers/BuySuperVipScreen";
 import SettingScreen from "../modules/profile/containers/SettingScreen";
 import HelpScreen from "../modules/common/containers/HelpScreen";
 import FeedbackScreen from "../modules/common/containers/FeedbackScreen";
+import LogoutScreen from "../modules/common/containers/LogoutScreen";
 import FanpageScreen from "../modules/common/containers/FanpageScreen";
 import ThongKeTanSuatScreen from "../modules/report/containers/ThongKeTanSuatScreen";
 import ThongKeVeNhieuVeItScreen from "../modules/report/containers/ThongKeVeNhieuVeItScreen";
@@ -64,6 +65,7 @@ const commonScreens = {
     Setting: SettingScreen,
     Guideline: HelpScreen,
     Feedback: FeedbackScreen,
+    Logout: LogoutScreen,
     Fanpage: FanpageScreen,
     Hotline: RankingScreen,
     Changelog: RankingScreen,
