@@ -37,7 +37,7 @@ export const callAPI = async function callAPI(endpoint, params, include_token) {
             }
         }
     }
-    console.log("API", endpoint, ": Request => ", JSON.stringify(formData));
+    console.log("API", CONFIG.api_domain +'/api/'+ endpoint, ": Request => ", JSON.stringify(formData));
     console.log(CONFIG.api_domain);
     return await fetch(
             CONFIG.api_domain +'/api/'+ endpoint,

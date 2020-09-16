@@ -15,6 +15,7 @@ import IconLoading from "../../common/components/IconLoading";
 import {call, put} from "redux-saga/effects";
 import {getUserCodeAPI} from "../api/GetNewUserCodeAPI";
 import {loginAPI} from "../api/LoginAPI";
+import * as Facebook from 'expo-facebook';
 
 const initialState = {
     loading: false
@@ -50,6 +51,32 @@ class LoginScreen extends React.Component {
         }
     };
 
+    facebookLogIn = async () => {
+        try {
+          await Facebook.initializeAsync('727625241152278');
+          const {
+            type,
+            token,
+            expires,
+            permissions,
+            declinedPermissions,
+          } = await Facebook.logInWithReadPermissionsAsync({
+            permissions: ['public_profile','email'],
+          });
+          if (type === 'success') {
+            // Get the user's name using Facebook's Graph API
+            const response = await fetch(`https://graph.facebook.com/me?fields=id,name,email,birthday&access_token=${token}`);
+            //const response = await fetch(`https://graph.facebook.com/me?access_token=${token}`);
+            alert('Logged in!');
+            console.log(await response.json());
+          } else {
+            // type === 'cancel'
+          }
+        } catch ({ message }) {
+          alert(`Facebook Login Error: ${message}`);
+        }
+      }
+
     render() {
         return (
             <View style={styles.container}>
@@ -59,6 +86,9 @@ class LoginScreen extends React.Component {
                     <Text style={styles.app_slogan}>{CONFIG.slogan}</Text>
                     <TouchableOpacity onPress={this.login} style={styles.login_button}>
                         {this.state.loading?<IconLoading />:<Text style={styles.login_button_text}>Đăng nhập</Text>}
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.loginBtn} onPress={this.facebookLogIn}>
+                        <Text style={{ color: "#fff" }}>Login with Facebook</Text>
                     </TouchableOpacity>
                     <View style={styles.hotline}>
                         <Text style={styles.hotline_label}>Hotline: </Text>

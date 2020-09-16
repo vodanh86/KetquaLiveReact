@@ -41,6 +41,17 @@ export default StyleSheet.create({
         borderRadius: 25,
         paddingVertical: 10
     },
+    loginBtn: {
+        position: 'absolute',
+        bottom: window.height * 0.15,
+        width: window.width * 0.6,
+        left: window.width * 0.2,
+        backgroundColor: '#4267b2',
+        alignItems: 'center',
+        justifyContent: `center`,
+        borderRadius: 25,
+        paddingVertical: 10
+    },
     login_button_text: {
         fontSize: 18,
         fontWeight: 'bold',
@@ -61,5 +72,5 @@ export default StyleSheet.create({
         fontSize: 15,
         fontWeight: 'bold',
         color: Colors.tintColor
-    }
+    },
 });
