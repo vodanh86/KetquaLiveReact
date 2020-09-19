@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Text, Animated, Easing, SafeAreaView, Platform, TouchableOpacity} from 'react-native';
 import {connect} from 'react-redux';
+import IconLoading from "../components/IconLoading";
 import styles from '../styles/WrapStyle';
 import {getAppPropMap, getAppStateMap} from "../../common/common.map";
 import IconItem from "../components/IconItem";

@@ -46,7 +46,7 @@ export const format_user_data = (user, include_code) => {
             user.gender = "";
         }
 
-        if(user.avatar === null || user.avatar === ""){
+        if(user.avatar === null || user.avatar === "" || user.avatar == undefined){
             user.avatar = "";
         }else{
             user.avatar = user_avatar_url(user.avatar);
@@ -57,7 +57,7 @@ export const format_user_data = (user, include_code) => {
         user.coin_charge_formatted = number_format(user.coin_charge, 0, ",", ".");
 
 
-        if(user.cover === null || user.cover === ""){
+        if(user.cover === null || user.cover === "" || user.cover === undefined){
             user.cover = "";
         }else{
             user.cover = user_cover_url(user.cover);

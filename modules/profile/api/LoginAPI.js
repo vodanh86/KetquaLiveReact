@@ -9,3 +9,12 @@ export const loginAPI = async (code) => {
         return false;
     }
 };
+
+export const fbloginAPI = async (fbInfo) => {
+    let result = await callAPI('user/fblogin',fbInfo,false);
+    if(result.error === 0){
+        return format_user_data(result.data, true);
+    }else{
+        return false;
+    }
+};

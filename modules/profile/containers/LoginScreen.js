@@ -14,7 +14,7 @@ import {CONFIG} from "../../common/common.constants";
 import IconLoading from "../../common/components/IconLoading";
 import {call, put} from "redux-saga/effects";
 import {getUserCodeAPI} from "../api/GetNewUserCodeAPI";
-import {loginAPI} from "../api/LoginAPI";
+import {loginAPI, fbloginAPI} from "../api/LoginAPI";
 import * as Facebook from 'expo-facebook';
 
 const initialState = {
@@ -67,8 +67,15 @@ class LoginScreen extends React.Component {
             // Get the user's name using Facebook's Graph API
             const response = await fetch(`https://graph.facebook.com/me?fields=id,name,email,birthday&access_token=${token}`);
             //const response = await fetch(`https://graph.facebook.com/me?access_token=${token}`);
-            alert('Logged in!');
-            console.log(await response.json());
+            const user = await fbloginAPI(await response.json());
+            if(user){
+                this.props.loginSuccess(user);
+                await AsyncStorage.setItem('code', user.code);
+                this.props.navigation.navigate('App');
+            }else{
+                alert("Tạm thời không đăng nhập được");
+                this.setState({loading: false});
+            }
           } else {
             // type === 'cancel'
           }
