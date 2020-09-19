@@ -16,7 +16,11 @@ export default StyleSheet.create({
         minHeight: 50,
         width: `100%`
     },
-    s73ebdced: {alignItems: `flex-start`, marginBottom: 10},
+    s73ebdced: {
+        alignItems: `flex-start`, 
+        marginBottom: 10,
+        justifyContent: `center`,
+    },
     supplierItemLogo: {
         height: (window.width / 6) - 15, width: (window.width / 3) - 30,
     },
@@ -75,9 +79,9 @@ export default StyleSheet.create({
         justifyContent: `flex-start`,
         padding: 10,
         width: `100%`,
-        minHeight: 50
+        minHeight: 20
     },
-    s6fc24140: {width: `100%`, flex: 1,maxHeight: 240},
+    s6fc24140: {width: `100%`, flex: 1,maxHeight: 170},
     s9f8b6074: {
         alignItems: `flex-start`,
         flexDirection: `row`,

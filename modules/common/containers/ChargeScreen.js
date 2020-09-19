@@ -4,7 +4,8 @@ import {
     Text,
     View,
     Image,
-    TouchableWithoutFeedback, AsyncStorage
+    TouchableWithoutFeedback, AsyncStorage,
+    Linking
 } from 'react-native';
 import {getAppPropMap, getAppStateMap} from "../common.map";
 import {connect} from 'react-redux';
@@ -141,6 +142,13 @@ class ChargeScreen extends React.Component {
                             </View>
                             <View style={styles.s37f7a71d}>
                                 <View style={styles.s73ebdced}>
+                                    <Text style={styles.s6bb5e61b}>Vui lòng truy cập link sau để nạp ngân lượng</Text>
+                                    <Text style={{color: 'blue'}}
+                                        onPress={() => Linking.openURL('http://207.148.117.130/nap-tien')}>
+                                    ketqualive.com
+                                    </Text>
+                                </View>
+                                {/*<View style={styles.s73ebdced}>
                                     <Text style={styles.s6bb5e61b}>Chọn loại thẻ</Text>
                                 </View>
                                 <View style={styles.supplier}>
@@ -171,7 +179,7 @@ class ChargeScreen extends React.Component {
                                 </View>
                                 <View style={styles.s6f732a55}>
                                     <Text style={styles.ctaText}>Mệnh giá nạp càng lớn, khuyến mãi càng nhiều</Text>
-                                </View>
+                                            </View>*/}
                             </View>
                             <View style={styles.priceHead}>
                                 <Text style={styles.priceHeadText}>Bảng giá ngân lượng</Text>
