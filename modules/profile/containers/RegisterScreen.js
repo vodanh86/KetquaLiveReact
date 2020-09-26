@@ -104,10 +104,10 @@ class RegisterScreen extends React.Component {
                             onChangeText={(value) => this.setState({rePassword: value})}/>
                         </View>
                     </View>
-                    <TouchableOpacity onPress={this.register} style={styles.register_button}>
+                    <TouchableOpacity onPress={this.register} style={styles.login_button}>
                         {this.state.loading?<IconLoading />:<Text style={styles.login_button_text}>Đăng ký</Text>}
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={this.login} style={styles.login_button}>
+                    <TouchableOpacity onPress={this.login} style={styles.register_button}>
                         {this.state.loading?<IconLoading />:<Text style={styles.login_button_text}>Trở lại</Text>}
                     </TouchableOpacity>
                     <View style={styles.hotline}>
