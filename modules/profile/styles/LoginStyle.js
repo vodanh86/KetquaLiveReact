@@ -73,4 +73,29 @@ export default StyleSheet.create({
         fontWeight: 'bold',
         color: Colors.tintColor
     },
+    container_inner: {
+        flex: 1,
+        position: 'absolute',
+        bottom: window.height * 0.27,
+    },
+    right_row: {
+        marginBottom: 10,
+        minHeight: 40,
+        alignItems: `flex-end`
+    },
+    row: {
+        marginBottom: 10,
+        minHeight: 40,
+        width: window.width * 0.6,
+    },
+    label: {
+        fontSize: 16,
+        marginBottom: 5,
+    },
+    input: {
+        fontSize: 16,
+        backgroundColor: Colors.lightGray,
+        borderRadius: 3,
+        padding: 10
+    },
 });

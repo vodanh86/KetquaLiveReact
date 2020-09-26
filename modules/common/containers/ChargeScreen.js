@@ -32,8 +32,14 @@ class ChargeScreen extends React.Component {
 
     state = {
         cardType: '',
-        message: ''
+        message: '',
+        info: ''
     };
+
+    async componentDidMount() {
+        let info = await callAPI('user/info');
+        this.setState({info:info.data})
+    }
 
     openChargePopup = (type) => {
         this.setState({cardType: type});
@@ -142,9 +148,9 @@ class ChargeScreen extends React.Component {
                             </View>
                             <View style={styles.s37f7a71d}>
                                 <View style={styles.s73ebdced}>
-                                    <Text style={styles.s6bb5e61b}>Vui lòng truy cập link sau để nạp ngân lượng</Text>
+                                     <Text style={styles.s6bb5e61b}>{this.state.info[0]}</Text>
                                     <Text style={{color: 'blue'}}
-                                        onPress={() => Linking.openURL('http://207.148.117.130/nap-tien')}>
+                                        onPress={() => Linking.openURL(this.state.info[1])}>
                                     ketqualive.com
                                     </Text>
                                 </View>
