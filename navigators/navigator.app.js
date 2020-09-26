@@ -9,10 +9,16 @@ import {Colors} from '../modules/common/common.constants';
 import {getAppPropMap, getAppStateMap} from "../modules/common/common.map";
 import LoginScreen from "../modules/profile/containers/LoginScreen";
 import CheckLoginScreen from "../modules/profile/containers/CheckLoginScreen";
-
+import RegisterScreen from "../modules/profile/containers/RegisterScreen";
 // Login stack
 const LoginStack = createStackNavigator({
     Login: LoginScreen
+}, {
+    headerMode: 'none'
+});
+// Login stack
+const RegisterStack = createStackNavigator({
+    register: RegisterScreen
 }, {
     headerMode: 'none'
 });
@@ -47,7 +53,8 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(mapStateToProps, mapDispatchToProps)(createAppContainer(createSwitchNavigator({
     CheckLogin:  CheckLoginScreen,
     App: AppNavigator,
-    Auth: LoginStack
+    Auth: LoginStack,
+    Register: RegisterStack,
 },{
     initialRouteName: "CheckLogin"
 })))

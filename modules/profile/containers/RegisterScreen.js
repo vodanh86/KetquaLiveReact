@@ -14,7 +14,7 @@ import {CONFIG} from "../../common/common.constants";
 import IconLoading from "../../common/components/IconLoading";
 import {call, put} from "redux-saga/effects";
 import {getUserCodeAPI} from "../api/GetNewUserCodeAPI";
-import {loginAPI, fbloginAPI, mbloginAPI} from "../api/LoginAPI";
+import {loginAPI, fbloginAPI, mbRegisterAPI} from "../api/LoginAPI";
 import * as Facebook from 'expo-facebook';
 
 const initialState = {
@@ -23,32 +23,23 @@ const initialState = {
     password: ""
 };
 
-class LoginScreen extends React.Component {
+class RegisterScreen extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
             loading: false,
             account: "",
-            password: ""
+            password: "",
+            rePassword: ""
         };
     }
 
-    async componentDidMount() {
-        let account = await AsyncStorage.getItem('account');
-        let password = await AsyncStorage.getItem('password');
-        this.setState({
-            loading: false,
-            account: account,
-            password: password
-        })
+    login = async () => {
+        this.props.navigation.navigate('Auth');
     }
 
     register = async () => {
-        this.props.navigation.navigate('Register');
-    }
-
-    login = async () => {
         if (this.state.account == "") {
             alert("Vui lòng nhập tài khoản");
             return false;
@@ -57,11 +48,25 @@ class LoginScreen extends React.Component {
             alert("Vui lòng nhập mật khẩu");
             return false;
         }
+        if (this.state.rePassword == "") {
+            alert("Vui lòng nhập lại mật khẩu");
+            return false;
+        }
+        if (isNaN(this.state.account) || (this.state.account.length < 8) || (this.state.account.length > 12)) {
+            alert("Tài khoản phải là số điện thoại");
+            return false;
+        }
+        if (this.state.password != this.state.rePassword) {
+            alert("Mật khẩu nhập lại không chính xác");
+            return false;
+        }
+        if (this.state.password.length < 5 || this.state.password.length > 32){
+            alert("Mật khẩu phải dài trên 5 ký tự");
+            return false;
+        }
         this.setState({loading: true,});
-        await AsyncStorage.setItem('account', this.state.account);
-        await AsyncStorage.setItem('password', this.state.password);
         try {
-            const user = await mbloginAPI(this.state);
+            const user = await mbRegisterAPI(this.state);
             if(user.error == 0){
                 this.props.loginSuccess(user.user);
                 await AsyncStorage.setItem('code', user.user.code);
@@ -75,46 +80,13 @@ class LoginScreen extends React.Component {
         }
     };
 
-    facebookLogIn = async () => {
-        try {
-          await Facebook.initializeAsync('727625241152278');
-          const {
-            type,
-            token,
-            expires,
-            permissions,
-            declinedPermissions,
-          } = await Facebook.logInWithReadPermissionsAsync({
-            permissions: ['public_profile','email'],
-          });
-          if (type === 'success') {
-            // Get the user's name using Facebook's Graph API
-            const response = await fetch(`https://graph.facebook.com/me?fields=id,name,email,birthday&access_token=${token}`);
-            //const response = await fetch(`https://graph.facebook.com/me?access_token=${token}`);
-            const user = await fbloginAPI(await response.json());
-            if(user.error == 0){
-                this.props.loginSuccess(user.user);
-                await AsyncStorage.setItem('code', user.user.code);
-                this.props.navigation.navigate('App');
-            }else{
-                alert(user.message);
-                this.setState({loading: false});
-            }
-          } else {
-            // type === 'cancel'
-          }
-        } catch ({ message }) {
-          alert(`Facebook Login Error: ${message}`);
-        }
-      }
-
     render() {
         return (
             <View style={styles.container}>
                 <View style={styles.login_form}>
                     <Image source={require('../../../assets/images/icon.png')} style={styles.app_icon} />
                     <Text style={styles.app_name}>{CONFIG.name}</Text>
-                    <Text style={styles.app_slogan}>{CONFIG.slogan}</Text>
+                    <Text style={styles.app_slogan}>Đăng ký tài khoản</Text>
                     <View style={styles.container_inner}>
                         <View style={styles.row}>
                             <Text style={styles.label}>Số điện thoại</Text>
@@ -126,15 +98,17 @@ class LoginScreen extends React.Component {
                             <TextInput style={styles.input} value={this.state.password} secureTextEntry autoCorrect={false} 
                             onChangeText={(value) => this.setState({password: value})}/>
                         </View>
+                        <View style={styles.row}>
+                            <Text style={styles.label}>Nhập lại mật khẩu</Text>
+                            <TextInput style={styles.input} value={this.state.rePassword} secureTextEntry autoCorrect={false} 
+                            onChangeText={(value) => this.setState({rePassword: value})}/>
+                        </View>
                     </View>
-                    <TouchableOpacity onPress={this.login} style={styles.login_button}>
-                        {this.state.loading?<IconLoading />:<Text style={styles.login_button_text}>Đăng nhập</Text>}
-                    </TouchableOpacity>
                     <TouchableOpacity onPress={this.register} style={styles.register_button}>
                         {this.state.loading?<IconLoading />:<Text style={styles.login_button_text}>Đăng ký</Text>}
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.loginBtn} onPress={this.facebookLogIn}>
-                        <Text style={{ color: "#fff" }}>Login with Facebook</Text>
+                    <TouchableOpacity onPress={this.login} style={styles.login_button}>
+                        {this.state.loading?<IconLoading />:<Text style={styles.login_button_text}>Trở lại</Text>}
                     </TouchableOpacity>
                     <View style={styles.hotline}>
                         <Text style={styles.hotline_label}>Hotline: </Text>
@@ -167,4 +141,4 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(RegisterScreen);

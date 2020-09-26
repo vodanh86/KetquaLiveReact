@@ -18,6 +18,14 @@ export const fbloginAPI = async (fbInfo) => {
     return result;
 };
 
+export const mbRegisterAPI = async (accountInfo) => {
+    let result = await callAPI('user/mbregister',accountInfo,false);
+    if(result.error === 0){
+        result.user = format_user_data(result.data, true);
+    }
+    return result;
+};
+
 export const mbloginAPI = async (accountInfo) => {
     let result = await callAPI('user/mblogin',accountInfo,false);
     if(result.error === 0){
