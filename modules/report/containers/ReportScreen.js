@@ -88,7 +88,7 @@ class ReportScreen extends React.Component {
                                 <IconItem name={`chart-scatter-plot-hexbin`} type={`mc`} />
                             </View>
                             <View style={styles.optionTextContainer}>
-                                <Text style={styles.optionText}>Thống kê lô tô gan</Text>
+                                <Text style={styles.optionText}>Thống kê lô tô kẹt</Text>
                             </View>
                             <View style={styles.optionIconMore}>
                                 <IconItem name={`angle-right`} type={`awesome`} />

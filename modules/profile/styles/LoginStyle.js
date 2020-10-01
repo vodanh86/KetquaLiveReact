@@ -32,7 +32,7 @@ export default StyleSheet.create({
     },
     login_button: {
         position: 'absolute',
-        bottom: window.height * 0.255,
+        bottom: window.height * 0.23,
         width: window.width * 0.6,
         left: window.width * 0.2,
         backgroundColor: Colors.tintColor,
@@ -40,10 +40,21 @@ export default StyleSheet.create({
         justifyContent: `center`,
         borderRadius: 25,
         paddingVertical: 10
+    },
+    register_login_button: {
+        position: 'absolute',
+        bottom: window.height * 0.16,
+        width: window.width * 0.6,
+        left: window.width * 0.2,
+        backgroundColor: Colors.tintColor,
+        alignItems: 'center',
+        justifyContent: `center`,
+        borderRadius: 25,
+        paddingVertical: 10       
     },
     register_button: {
         position: 'absolute',
-        bottom: window.height * 0.2,
+        bottom: window.height * 0.16,
         width: window.width * 0.6,
         left: window.width * 0.2,
         backgroundColor: Colors.tintColor,
@@ -52,9 +63,20 @@ export default StyleSheet.create({
         borderRadius: 25,
         paddingVertical: 10
     },
-    loginBtn: {
+    back_button: {
         position: 'absolute',
-        bottom: window.height * 0.15,
+        bottom: window.height * 0.1,
+        width: window.width * 0.6,
+        left: window.width * 0.2,
+        backgroundColor: Colors.tintColor,
+        alignItems: 'center',
+        justifyContent: `center`,
+        borderRadius: 25,
+        paddingVertical: 10
+    },
+    fb_login_button: {
+        position: 'absolute',
+        bottom: window.height * 0.1,
         width: window.width * 0.6,
         left: window.width * 0.2,
         backgroundColor: '#4267b2',
@@ -87,7 +109,14 @@ export default StyleSheet.create({
     container_inner: {
         flex: 1,
         position: 'absolute',
-        bottom: window.height * 0.33,
+        bottom: window.height * 0.4,
+        alignItems: 'center',
+    },
+    register_container_inner: {
+        flex: 1,
+        position: 'absolute',
+        bottom: window.height * 0.22,
+        alignItems: 'center',
     },
     right_row: {
         marginBottom: 10,

@@ -49,30 +49,7 @@ class LoginScreen extends React.Component {
     }
 
     login = async () => {
-        if (this.state.account == "") {
-            alert("Vui lòng nhập tài khoản");
-            return false;
-        }
-        if (this.state.password == "") {
-            alert("Vui lòng nhập mật khẩu");
-            return false;
-        }
-        this.setState({loading: true,});
-        await AsyncStorage.setItem('account', this.state.account);
-        await AsyncStorage.setItem('password', this.state.password);
-        try {
-            const user = await mbloginAPI(this.state);
-            if(user.error == 0){
-                this.props.loginSuccess(user.user);
-                await AsyncStorage.setItem('code', user.user.code);
-                this.props.navigation.navigate('App');
-            }else{
-                alert(user.message);
-                this.setState({loading: false});
-            }
-        } catch (error) {
-            console.error(error);
-        }
+        this.props.navigation.navigate('MbLogin');
     };
 
     facebookLogIn = async () => {
@@ -115,25 +92,13 @@ class LoginScreen extends React.Component {
                     <Image source={require('../../../assets/images/icon.png')} style={styles.app_icon} />
                     <Text style={styles.app_name}>{CONFIG.name}</Text>
                     <Text style={styles.app_slogan}>{CONFIG.slogan}</Text>
-                    <View style={styles.container_inner}>
-                        <View style={styles.row}>
-                            <Text style={styles.label}>Số điện thoại</Text>
-                            <TextInput style={styles.input} value={this.state.account} keyboardType={`phone-pad`} 
-                            onChangeText={(value) => this.setState({account: value})}/>
-                        </View>
-                        <View style={styles.row}>
-                            <Text style={styles.label}>Mật khẩu</Text>
-                            <TextInput style={styles.input} value={this.state.password} secureTextEntry autoCorrect={false} 
-                            onChangeText={(value) => this.setState({password: value})}/>
-                        </View>
-                    </View>
                     <TouchableOpacity onPress={this.login} style={styles.login_button}>
                         {this.state.loading?<IconLoading />:<Text style={styles.login_button_text}>Đăng nhập</Text>}
                     </TouchableOpacity>
                     <TouchableOpacity onPress={this.register} style={styles.register_button}>
                         {this.state.loading?<IconLoading />:<Text style={styles.login_button_text}>Đăng ký</Text>}
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.loginBtn} onPress={this.facebookLogIn}>
+                    <TouchableOpacity style={styles.fb_login_button} onPress={this.facebookLogIn}>
                         <Text style={{ color: "#fff" }}>Login with Facebook</Text>
                     </TouchableOpacity>
                     <View style={styles.hotline}>

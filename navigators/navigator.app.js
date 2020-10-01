@@ -8,6 +8,7 @@ import BackButton from "../modules/common/components/BackButton";
 import {Colors} from '../modules/common/common.constants';
 import {getAppPropMap, getAppStateMap} from "../modules/common/common.map";
 import LoginScreen from "../modules/profile/containers/LoginScreen";
+import MbLoginScreen from "../modules/profile/containers/MbLoginScreen";
 import CheckLoginScreen from "../modules/profile/containers/CheckLoginScreen";
 import RegisterScreen from "../modules/profile/containers/RegisterScreen";
 // Login stack
@@ -19,6 +20,12 @@ const LoginStack = createStackNavigator({
 // Login stack
 const RegisterStack = createStackNavigator({
     register: RegisterScreen
+}, {
+    headerMode: 'none'
+});
+// Login stack
+const MbLoginStack = createStackNavigator({
+    MbLogin: MbLoginScreen
 }, {
     headerMode: 'none'
 });
@@ -55,6 +62,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(createAppContainer(c
     App: AppNavigator,
     Auth: LoginStack,
     Register: RegisterStack,
+    MbLogin: MbLoginStack
 },{
     initialRouteName: "CheckLogin"
 })))

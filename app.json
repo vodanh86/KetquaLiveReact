@@ -4,7 +4,7 @@
     "description": "Xổ Số - Bóng Đá",
     "slug": "kqlivepro",
     "privacy": "public",
-    "sdkVersion": "37.0.0",
+    "sdkVersion": "38.0.0",
     "platforms": [
       "ios",
       "android"
@@ -20,15 +20,16 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
+    "facebookScheme": "fb727625241152278",
     "assetBundlePatterns": [
       "**/*"
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.topop.ketqualivepro"
+      "bundleIdentifier": "com.boxu.ketqualivepro"
     },
     "android": {
-      "package": "com.topop.ketqualivepro",
+      "package": "com.boxu.ketqualivepro",
       "versionCode": 10
     }
   }

@@ -17,7 +17,7 @@ import {callAPI} from "../../common/api/callAPI";
 
 class ThongKeLoGanScreen extends React.Component {
     static navigationOptions = {
-        title: 'Thống kê lô tô gan'
+        title: 'Thống kê lô tô kẹt'
     };
     state = {
         regionID: 'tt',
