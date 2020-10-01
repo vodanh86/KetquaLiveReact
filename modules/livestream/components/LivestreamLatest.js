@@ -19,6 +19,7 @@ import {Colors} from "../../common/common.constants";
 import {callAPI} from "../../common/api/callAPI";
 import noavatar from "../../../assets/images/no_avatar.png";
 import Swiper from "react-native-swiper";
+import YoutubePlayer from "react-native-youtube-iframe";
 import IconItem from "../../common/components/IconItem";
 import IconLoading from "../../common/components/IconLoading";
 
@@ -137,11 +138,16 @@ class LivestreamLatest extends React.Component {
 
     _renderItem = ({item}) => (
         <View style={styles.streamItem} key={item.screenshot}>
-            <TouchableOpacity activeOpacity={0.9} style={styles.streamItemTouch} onPress={() => this._onPressItem(item)}>
+            <TouchableOpacity activeOpacity={0.9} style={styles.streamItemTouch}>
+                <YoutubePlayer
+                    height={300}
+                    play={false}
+                    videoId={item.youtube_id.split("=")[1]}
+                    thumbnail_url={item.screenshot}
+                />
                 <View style={styles.streamItemViewing}>
                     <Text style={styles.streamItemViewingNumber}>{item.time}</Text>
                 </View>
-                <Image source={{uri: item.screenshot}} style={styles.streamItemScreenshot}/>
             </TouchableOpacity>
             <View style={styles.streamInfo}>
                 <Image source={item.author_avatar!==""?{uri: item.author_avatar}:noavatar} style={styles.streamItemAvatar} />
