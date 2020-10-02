@@ -1,6 +1,5 @@
 import React, {Fragment} from 'react';
 import {
-    WebView,
     RefreshControl,
     ScrollView,
     Image,
@@ -22,6 +21,7 @@ import Swiper from "react-native-swiper";
 import YoutubePlayer from "react-native-youtube-iframe";
 import IconItem from "../../common/components/IconItem";
 import IconLoading from "../../common/components/IconLoading";
+import { WebView } from 'react-native-webview'
 
 class LivestreamLatest extends React.Component {
 
@@ -139,11 +139,12 @@ class LivestreamLatest extends React.Component {
     _renderItem = ({item}) => (
         <View style={styles.streamItem} key={item.screenshot}>
             <TouchableOpacity activeOpacity={0.9} style={styles.streamItemTouch}>
-                <YoutubePlayer
-                    height={300}
-                    play={false}
-                    videoId={item.youtube_id.split("=")[1]}
-                    thumbnail_url={item.screenshot}
+                <WebView
+                        style={ {height: 300} }
+                        javaScriptEnabled={true}
+                        domStorageEnabled={true}
+                        allowsFullscreenVideo={false}
+                        source={{uri: 'https://www.youtube.com/embed/' + item.youtube_id.split("=")[1] }}
                 />
                 <View style={styles.streamItemViewing}>
                     <Text style={styles.streamItemViewingNumber}>{item.time}</Text>
