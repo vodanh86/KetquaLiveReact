@@ -74,8 +74,14 @@ class ThongKeTongSoScreen extends React.Component {
         if(this.state.results === null){
             return (<IconLoading color={Colors.lightBlack} style={{paddingTop: 30}}/>)
         }
+        var newResults = [];
+        for (var key in this.state.results) {
+            if (this.state.results.hasOwnProperty(key)) {
+                newResults.push(this.state.results[key])
+            }
+          }
         return (<ScrollView style={styles.resultBodyList}>
-            {this.state.results.map(item => {
+            {newResults.map(item => {
                return (<View style={styles.resultBody} key={item.number}>
                    <View style={styles.resultHeadCol}><Text style={styles.resultColTextHighlight}>{item.number}</Text></View>
                    <View style={styles.resultHeadCol}><Text style={styles.resultColText}>{item.number_times}</Text></View>
