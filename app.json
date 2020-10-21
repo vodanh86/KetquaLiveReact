@@ -4,7 +4,7 @@
     "description": "Xổ Số - Bóng Đá",
     "slug": "kqlivepro",
     "privacy": "public",
-    "sdkVersion": "38.0.0",
+    "sdkVersion": "37.0.0",
     "platforms": [
       "ios",
       "android"
@@ -30,7 +30,7 @@
     },
     "android": {
       "package": "com.boxu.ketqualivepro",
-      "versionCode": 10
+      "versionCode": 13
     }
   }
 }

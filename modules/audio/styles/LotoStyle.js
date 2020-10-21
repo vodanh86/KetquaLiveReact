@@ -80,7 +80,7 @@ export default StyleSheet.create({
         alignItems: `center`,
         justifyContent: `center`,
         padding: 10,
-        width: 50
+        width: 120
     },
     lotoNumberSpecText: {
         color: `rgba(255, 0, 51, 1)`,
@@ -108,9 +108,6 @@ export default StyleSheet.create({
     },
     lotoRow: {
         borderColor: `rgba(230, 230, 230, 1)`,
-        borderLeftWidth: 1,
-        borderRightWidth: 1,
-        borderTopWidth: 1,
         flexDirection: `row`
     },
     lotoNumberNormal: {

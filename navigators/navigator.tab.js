@@ -7,6 +7,7 @@ import HomeScreen from '../modules/common/containers/HomeScreen';
 import {Colors} from "../modules/common/common.constants";
 import LotoScreen from "../modules/loto/containers/LotoScreen";
 import FootballScreen from "../modules/football/containers/FootballScreen";
+import AudioScreen from "../modules/audio/containers/AudioScreen";
 import ReportScreen from "../modules/report/containers/ReportScreen";
 import GameScreen from "../modules/game/containers/GameScreen";
 import NotificationScreen from "../modules/common/containers/NotificationScreen";
@@ -29,6 +30,7 @@ import ThongKeVeNhieuVeItScreen from "../modules/report/containers/ThongKeVeNhie
 import ThongKeTongSoScreen from "../modules/report/containers/ThongKeTongSoScreen";
 import ThongKeTongSoResultScreen from "../modules/report/containers/ThongKeTongSoResultScreen";
 import SoiCauScreen from "../modules/report/containers/SoiCauScreen";
+import ChapterScreen from "../modules/audio/containers/ChapterScreen"
 import SoiCauListScreen from "../modules/report/containers/SoiCauListScreen";
 import SoiCauDetailScreen from "../modules/report/containers/SoiCauDetailScreen";
 import ThongKeLoGanScreen from "../modules/report/containers/ThongKeLoGanScreen";
@@ -42,7 +44,7 @@ import ViewVideoScreen from "../modules/livestream/containers/ViewVideoScreen";
 import LeagueScreen from "../modules/football/containers/LeagueScreen";
 import FixtureScreen from "../modules/football/containers/FixtureScreen";
 import ThongKeVeItVeNhieuResultScreen from "../modules/report/containers/ThongKeVeItVeNhieuResultScreen";
-
+import PlayerScreen from "../modules/audio/containers/PlayerScreen"
 // default options
 const defaultNavigationOptions = {
     headerTintColor: Colors.tintTextColor,
@@ -73,6 +75,7 @@ const commonScreens = {
     LotoSubscribe: LotoSubscribeScreen,
     PremiumBenefit: PremiumBenefitScreen,
     SoiCau: SoiCauScreen,
+    Chapter: ChapterScreen,
     SoiCauList: SoiCauListScreen,
     SoiCauDetail: SoiCauDetailScreen,
     ThongKeTanSuat: ThongKeTanSuatScreen,
@@ -87,7 +90,8 @@ const commonScreens = {
     PublicProfile: PublicProfileScreen,
     videoDetail: ViewVideoScreen,
     League: LeagueScreen,
-    Fixture: FixtureScreen
+    Fixture: FixtureScreen,
+    Player: PlayerScreen
 };
 
 // Trang chủ
@@ -129,6 +133,28 @@ LotoStack.navigationOptions = {
                 Platform.OS === 'ios'
                     ? `ios-globe${focused ? '' : ''}`
                     : 'md-globe'
+            }
+        />
+    ),
+};
+
+// Đọc truyện
+const AudioStack = createStackNavigator({
+    Audio: AudioScreen,
+    ...commonScreens
+},{
+    defaultNavigationOptions: defaultNavigationOptions
+});
+
+AudioStack.navigationOptions = {
+    tabBarLabel: 'Đọc truyện',
+    tabBarIcon: ({focused}) => (
+        <TabBarIcon
+            focused={focused}
+            name={
+                Platform.OS === 'ios'
+                    ? `ios-book${focused ? '' : ''}`
+                    : 'md-book'
             }
         />
     ),
@@ -204,6 +230,7 @@ GameStack.navigationOptions = {
 const BottomMenu = createBottomTabNavigator({
         HomeStack,
         LotoStack,
+        AudioStack,
         FootballStack,
         ReportStack
     },

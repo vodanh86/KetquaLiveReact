@@ -192,7 +192,7 @@ export default class SwiperExtra extends Component {
     autoplayTimer = null
     loopJumpTimer = null
 
-    componentWillReceiveProps (nextProps) {
+    UNSAFE_componentWillReceiveProps (nextProps) {
         if (!nextProps.autoplay && this.autoplayTimer) clearTimeout(this.autoplayTimer)
         this.setState(this.initState(nextProps, this.props.index !== nextProps.index))
     }

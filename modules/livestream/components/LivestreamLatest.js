@@ -73,7 +73,7 @@ class LivestreamLatest extends React.Component {
                 <FlatList
                     style={styles.listLivestream}
                     data={this.state.videos}
-                    keyExtractor={(item, index) => item.screenshot}
+                    keyExtractor={(item, index) => item.youtube_id}
                     initialNumToRender={1}
                     extraData={this.state}
                     refreshControl={
